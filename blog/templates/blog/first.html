@@ -1,0 +1,44 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<!-- ADDITIONAL STYLING -->
+
+<style>
+  body{
+    background-color: #fff;
+  }
+</style>
+
+<div>
+    
+    <!-- Page Hero-->
+    <section class=" page-header page-header-light bg-white mt-5">
+      <div class="page-header-content pt-5">
+          <div class="container">
+              <div class="row align-items-center">
+                  <div class="col-lg-6 " data-aos="fade-up">
+                      <h1 class="page-header-title">Where everyone's thought is highly appreciated</h1>
+                      <br>
+                      <p class="page-header-text mb-5">Welcome to social network application</p>
+                      
+                      {% if user.is_authenticated %}
+                        <a class="btn btn-lg btn-primary font-weight-500 mr-3" href="{% url 'posts-follow-view' %}">FEEDS</a>
+                        <a class="btn btn-lg btn-primary-soft text-primary font-weight-500" href="#"><i class="far fa-check-circle"></i>&nbsp;LOGGED IN</a>
+                      {% else %}
+                        <a class="btn btn-lg btn-primary font-weight-500 mr-3" href="{% url 'register' %}">REGISTER</a>
+                        <a class="btn btn-lg btn-primary-soft text-primary font-weight-500" href="{% url 'account_login' %}">LOGIN</a>
+                      {% endif %}
+                  </div>
+                  <div class="col-lg-6 d-none d-lg-block" data-aos="fade-up" data-aos-delay="100"><img class="img-fluid" src="/static/blog/images/login.png" /></div>
+              </div>
+          </div>
+      </div>
+      <br>
+    </section>
+
+</div>
+
+{% endblock %}
